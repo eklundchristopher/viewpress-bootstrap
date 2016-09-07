@@ -1,5 +1,4 @@
 @through('EklundChristopher\ViewPressBootstrap\PostsController@single')
-
 @extends('layout')
 
 @section('content')
@@ -16,8 +15,10 @@
                                 {{ get_the_title() }}
                             </a>
                         </h2>
+                    </div>
 
-                        {{ $test or 'test' }}
+                    <div class="panel-body">
+                        {{ $custom or 'default' }}
                     </div>
                 </div>
             </article>

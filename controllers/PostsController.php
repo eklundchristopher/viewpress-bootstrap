@@ -7,17 +7,19 @@ class PostsController
     /**
      * Handle any requests to a single post.
      *
-     * @return void
+     * @return array|void
      */
     public function single()
     {
-        // Do things...
+        return [
+            'custom' => 'Hello World',
+        ];
     }
 
     /**
      * Handle any requests to the posts archive.
      *
-     * @return void
+     * @return array|void
      */
     public function archive()
     {
