@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {!! wp_head() !!}
+
     <!-- Favicon -->
     <link href="{{ get_template_directory_uri() }}/public/img/favicon.png" rel="icon" type="image/png">
 
     <!-- Stylesheets -->
     <link href="{{ get_template_directory_uri() }}/public/css/app.css" rel="stylesheet" media="all">
-
-    <title>{{ __('ViewPress', 'viewpress-bootstrap') }}</title>
 </head>
 <body>
-
-    <br>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="jumbotron">
                     <div class="container">
-                        <h1>{{ __('ViewPress', 'viewpress-bootstrap') }}</h1>
+                        <h1>
+                            <a href="{{ site_url('/') }}">{{ __('ViewPress', 'viewpress-bootstrap') }}</a>
+                        </h1>
                         <p>{{ __('A way to structure your themes logically.', 'viewpress-bootstrap') }}</p>
                     </div>
                 </div>
@@ -41,6 +41,9 @@
             @endif
         </div>
     </div>
+
+
+    {!! wp_footer() !!}
 
 </body>
 </html>
