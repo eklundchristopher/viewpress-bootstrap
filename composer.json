@@ -13,8 +13,8 @@
         "eklundchristopher/viewpress": "dev-master"
     },
     "autoload": {
-        "classmap": {
+        "classmap": [
             "controllers"
-        }
+        ]
     }
 }
