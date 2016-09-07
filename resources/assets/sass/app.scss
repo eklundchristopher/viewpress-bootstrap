@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+article .panel {
+    & > .panel-heading {
+        & > h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+    }
+
+    & > .panel-footer {
+        & > time {
+            color: $text-muted;
+        }
+    }
+}
+
+.widget_archive,
+.widget_categories {
+    & > .panel-body {
+        padding: 0;
+
+        & > ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            & > li {
+                border-bottom: 1px solid #ddd;
+                font-style: italic;
+                color: $text-muted;
+                display: block;
+                padding: 15px;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                & > a {
+                    font-style: normal;
+                }
+            }
+        }
+    }
+}
+
+.navigation.pagination {
+    & > .screen-reader-text {
+        display: none;
+    }
+
+    & > .nav-links {
+        & > .page-numbers {
+            display: inline-block;
+            border: 1px solid #ddd;
+            border-right: none;
+            padding: 4px 10px;
+            margin: 0;
+
+            &:first-child {
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+                border-right: 1px solid #ddd;
+            }
+        }
+    }
+}

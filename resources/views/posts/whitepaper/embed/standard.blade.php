@@ -1,0 +1,1 @@
+Standard Whitepaper Embed

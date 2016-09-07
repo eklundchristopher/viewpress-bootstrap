@@ -1,0 +1,1 @@
+Post: {{ the_title() }}
