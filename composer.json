@@ -11,5 +11,10 @@
     "require": {
         "composer/installers": "~1.2",
         "eklundchristopher/viewpress": "dev-master"
+    },
+    "autoload": {
+        "classmap": {
+            "controllers"
+        }
     }
 }
