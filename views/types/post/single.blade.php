@@ -68,6 +68,8 @@
                     @foreach ($comments as $comment)
                         <article data-id="{{ $comment->comment_ID }}">
                             <div class="card card-viewpress">
+                                <a name="comment-{{ $comment->comment_ID }}"></a>
+
                                 <div class="card-block">
                                     {{ get_comment_text($comment->comment_ID) }}
                                 </div>
