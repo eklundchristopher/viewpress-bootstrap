@@ -12,6 +12,8 @@
 
     <!-- Stylesheets -->
     <link href="{{ get_template_directory_uri() }}/public/css/app.css" rel="stylesheet" media="all">
+
+    <title>{{ get_the_title() }}</title>
 </head>
 <body>
 
