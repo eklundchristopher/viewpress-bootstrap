@@ -1,4 +1,5 @@
 @through('EklundChristopher\ViewPressBootstrap\PostsController@single')
+
 @extends('layout')
 
 @section('content')

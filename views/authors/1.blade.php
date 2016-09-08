@@ -1,3 +1,17 @@
-<?php $author = get_queried_object(); ?>
+@extends('layout')
 
-Author: {{ $author->ID }}
+@section('content')
+
+    <div class="card card-viewpress">
+        <div class="card-header">
+            <h4 class="card-title">
+                Author: {{ get_queried_object()->ID }}
+            </h4>
+        </div>
+
+        <div class="card-block text-muted">
+            not yet implemented
+        </div>
+    </div>
+
+@stop
