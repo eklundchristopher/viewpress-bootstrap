@@ -1,74 +1,151 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,700';
 
-article .panel {
-    & > .panel-heading {
-        & > h2 {
-            font-size: 20px;
-            margin: 0;
-        }
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-size-root: 14px;
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+
+
+body {
+    background-color: #f5f8fa;
+    line-height: 22px;
+    color: #1e3948;
+}
+
+a {
+    border-bottom: 1px solid transparent;
+    transition: all .15s ease-in-out;
+    color: #3097d1;
+
+    &:hover {
+        border-bottom-color: #216a94;
+        text-decoration: none;
+        color: #216a94;
     }
+}
 
-    & > .panel-footer {
-        & > time {
-            color: $text-muted;
+abbr[title] {
+    text-decoration: none;
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+.navbar {
+    &.bg-viewpress {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid #d3e0e9;
+        background-color: #fff;
+
+        a.navbar-brand,
+        a.nav-link {
+            border-bottom: none;
+        }
+
+        .btn {
+            &.btn-viewpress {
+                transition: all .15s ease-in-out;
+                background-color: transparent;
+                border: 1px solid #d3e0e9;
+                color: rgba(0, 0, 0, 0.6);
+
+                &:hover {
+                    background-color: #2a88bd;
+                    color: #fff;
+                }
+            }
         }
     }
 }
 
-.widget_archive,
-.widget_categories {
-    & > .panel-body {
-        padding: 0;
+.searchform {
+    @include clearfix;
 
-        & > ul {
+    input[type="text"] {
+        border: 1px solid rgba(0, 0, 0, .2);
+        transition: all .15s ease-in-out;
+        border-radius: 3px;
+        padding: 5px;
+        height: 30px;
+        width: 68%;
+
+        &:focus {
+            border-color: #2a88bd;
+            outline: none;
+        }
+    }
+
+    input[type="submit"] {
+        transition: all .15s ease-in-out;
+        background-color: transparent;
+        border: 1px solid #2a88bd;
+        border-radius: 3px;
+        color: #2a88bd;
+        float: right;
+        height: 30px;
+
+        &:hover {
+            background-color: #2a88bd;
+            color: #fff;
+        }
+    }
+}
+
+.btn {
+    &.btn-viewpress {
+        transition: all .15s ease-in-out;
+        background-color: transparent;
+        border: 1px solid #2a88bd;
+        color: #2a88bd;
+
+        &:hover {
+            background-color: #2a88bd;
+            color: #fff;
+        }
+    }
+}
+
+.card.card-viewpress {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border: 1px solid #d3e0e9;
+    background-color: #fff;
+    margin-bottom: 25px;
+
+    &[class*="widget_"] .card-block {
+        & > ul,
+        & > ol {
+            margin: 0 -1.25rem -1.25rem;
             list-style: none;
-            padding: 0;
-            margin: 0;
+            padding-left: 0;
 
             & > li {
-                border-bottom: 1px solid #ddd;
-                font-style: italic;
-                color: $text-muted;
-                display: block;
-                padding: 15px;
-
-                &:last-child {
-                    border-bottom: none;
-                }
-
-                & > a {
-                    font-style: normal;
-                }
+                border-top: 1px solid #d3e0e9;
+                padding: 8px 5px 8px 15px;
             }
         }
     }
-}
 
-.navigation.pagination {
-    & > .screen-reader-text {
-        display: none;
+    & > .card-header {
+        background-color: transparent;
+        padding: 1.25rem 1.25rem 0;
+        border-bottom: none;
+
+        & > h6.card-title {
+            font-weight: bold;
+        }
+
+        & > .card-title {
+            margin-bottom: 0;
+        }
     }
 
-    & > .nav-links {
-        & > .page-numbers {
-            display: inline-block;
-            border: 1px solid #ddd;
-            border-right: none;
-            padding: 4px 10px;
-            margin: 0;
-
-            &:first-child {
-                border-bottom-left-radius: 5px;
-                border-top-left-radius: 5px;
-            }
-
-            &:last-child {
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
-                border-right: 1px solid #ddd;
-            }
-        }
+    & > .card-footer {
+        border-top: 1px solid #d3e0e9;
+        background-color: #f5f8fa;
+        font-size: 13px;
     }
 }

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     {!! wp_head() !!}
 
@@ -17,22 +17,45 @@
 </head>
 <body>
 
+    <nav class="navbar navbar-light navbar-full bg-viewpress">
+        <div class="container">
+            <a href="{{ site_url('/') }}" class="navbar-brand">
+                {{ __('ViewPress', 'viewpress-bootstrap') }}
+            </a>
+
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a href="{{ site_url('/') }}" class="nav-link">
+                        {{ __('Blog', 'viewpress-bootstrap') }}
+                    </a>
+                </li>
+            </ul>
+
+            @if (is_user_logged_in())
+                <div class="btn-group pull-sm-right">
+                    <a href="{{ get_author_posts_url(wp_get_current_user()->ID) }}" class="btn btn-viewpress">
+                        {{ wp_get_current_user()->display_name }}
+                    </a>
+
+                    <button class="btn btn-viewpress dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+                    <div class="dropdown-menu">
+                        @if (current_user_can('manage_options'))
+                            <a href="{{ get_admin_url() }}" class="dropdown-item">Dashboard</a>
+                        @endif
+                        <a href="{{ get_edit_user_link() }}" class="dropdown-item">Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ wp_logout_url() }}" class="dropdown-item">Log Out</a>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </nav>
+
+    <br>
     <br>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron">
-                    <div class="container">
-                        <h1>
-                            <a href="{{ site_url('/') }}">{{ __('ViewPress', 'viewpress-bootstrap') }}</a>
-                        </h1>
-                        <p>{{ __('A way to structure your themes logically.', 'viewpress-bootstrap') }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="row">
             <div class="{{ is_active_sidebar('sidebar-default') ? 'col-md-9' : 'col-md-12' }}">
                 @yield('content')
@@ -45,6 +68,14 @@
             @endif
         </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <!-- Scripts -->
+    <script src="{{ get_template_directory_uri() }}/public/js/app.js"></script>
 
 
     {!! wp_footer() !!}

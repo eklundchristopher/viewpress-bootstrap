@@ -1,5 +1,10 @@
 <?php
 
+// Include Composer dependencies if found.
+if (is_file($composer = __DIR__.'/vendor/autoload.php')) {
+    require_once $composer;
+}
+
 /**
  * Enable certain features for the theme.
  */
@@ -14,12 +19,21 @@ add_action('widgets_init', function () {
         'description'   => __('The sidebar for your posts page.', 'viewpress-bootstrap'),
         'id'            => 'sidebar-default',
         'class'         => 'list-group',
-        'before_widget' => '<div id="%1$s" class="panel panel-default %2$s">',
+        'before_widget' => '<div id="%1$s" class="card card-viewpress %2$s">',
         'after_widget'  => '</div></div>',
-        'before_title'  => '<div class="panel-heading">',
-        'after_title'   => '</div><div class="panel-body">',
+        'before_title'  => '<div class="card-header"><h6 class="card-title">',
+        'after_title'   => '</h6></div><div class="card-block">',
     ]);
 });
+
+/**
+ * By default, there's no title for the search widget, so we'll have to manually add it.
+ * If you use a title for your search widget, you should comment this section out.
+ */
+add_filter('get_search_form', function ($form) {
+    return '<div class="card-block">'.$form;
+});
+
 
 if (! function_exists('viewpress_pagination')) {
     /**

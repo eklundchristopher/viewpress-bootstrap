@@ -2,19 +2,21 @@
 @extends('layout')
 
 @section('content')
-    
+
     @if (have_posts())
         @while (have_posts())
             <?php the_post(); ?>
 
             <article data-id="{{ get_the_ID() }}">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2>{{ get_the_title() }}</h2>
+                <div class="card card-viewpress">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            {{ get_the_title() }}
+                        </h3>
                     </div>
 
-                    <div class="panel-body">
-                        @if ($image = get_the_post_thumbnail(get_the_ID(), null, ['class' => 'img-responsive']))
+                    <div class="card-block">
+                        @if ($image = get_the_post_thumbnail(get_the_ID(), null, ['class' => 'img-fluid']))
                             <a href="{{ get_the_post_thumbnail_url() }}" target="_blank">{!! $image !!}</a>
                         @endif
 
@@ -28,20 +30,20 @@
                             <br>
 
                             @foreach ($tags as $tag)
-                                <a href="{{ get_tag_link($tag->term_id) }}" class="btn btn-xs btn-primary tag tag-{{ $tag->term_id }}">
+                                <a href="{{ get_tag_link($tag->term_id) }}" class="btn btn-sm btn-viewpress term term-{{ $tag->term_id }}">
                                     {{ $tag->name }}
                                 </a>
                             @endforeach
                         @endif
                     </div>
 
-                    <div class="panel-footer clearfix">
+                    <div class="card-footer clearfix">
                         <time datetime="{{ get_the_date() }} {{ get_the_time() }}">
                             {{ get_the_date() }}
                         </time>
 
-                        <div class="pull-right">
-                            Published by <a href="{{ get_author_posts_url(get_the_author_ID()) }}">{{ get_the_author() }}</a>
+                        <div class="pull-sm-right">
+                            Published by <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}">{{ get_the_author() }}</a>
 
                             @if ($categories = get_the_category())
                                 in 
@@ -65,17 +67,17 @@
 
                     @foreach ($comments as $comment)
                         <article data-id="{{ $comment->comment_ID }}">
-                            <div class="panel panel-default">
-                                <div class="panel-heading clearfix">
-                                    <strong>{{ get_comment_author() }}</strong> said
-
-                                    <div class="pull-right text-muted">
-                                        {{ get_comment_date() }}
-                                    </div>
+                            <div class="card card-viewpress">
+                                <div class="card-block">
+                                    {{ get_comment_text($comment->comment_ID) }}
                                 </div>
 
-                                <div class="panel-body">
-                                    {{ get_comment_text() }}
+                                <div class="card-footer text-muted">
+                                    <strong>{{ get_comment_author($comment->comment_ID) }}</strong>
+
+                                    {{ __('commented on the', 'viewpress-bootstrap') }}
+
+                                    {{ get_comment_date('', $comment->comment_ID) }}
                                 </div>
                             </div>
                         </article>

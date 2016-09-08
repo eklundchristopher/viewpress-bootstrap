@@ -7,18 +7,18 @@
             <?php the_post(); ?>
 
             <article data-id="{{ get_the_ID() }}">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2>
+                <div class="card card-viewpress">
+                    <div class="card-header">
+                        <h4 class="card-title">
                             <a href="{{ get_permalink() }}">
                                 {{ get_the_title() }}
                             </a>
-                        </h2>
+                        </h4>
                     </div>
 
-                    <div class="panel-body clearfix">
+                    <div class="card-block">
                         @if ($image = get_the_post_thumbnail(get_the_ID(), 'thumbnail', ['class' => 'img-thumbnail']))
-                            <div class="pull-left" style="margin-right: 20px">
+                            <div class="pull-xs-right" style="margin-left: 20px">
                                 <a href="{{ get_permalink() }}">{!! $image !!}</a>
                             </div>
                         @endif
@@ -29,20 +29,20 @@
                             <hr>
 
                             @foreach ($tags as $tag)
-                                <a href="{{ get_tag_link($tag->term_id) }}" class="btn btn-xs btn-primary tag tag-{{ $tag->term_id }}">
+                                <a href="{{ get_tag_link($tag->term_id) }}" class="btn btn-sm btn-viewpress term term-{{ $tag->term_id }}">
                                     {{ $tag->name }}
                                 </a>
                             @endforeach
                         @endif
                     </div>
 
-                    <div class="panel-footer clearfix">
+                    <div class="card-footer text-muted clearfix">
                         <time datetime="{{ get_the_date() }} {{ get_the_time() }}">
                             {{ get_the_date() }}
                         </time>
 
-                        <div class="pull-right">
-                            Published by <a href="{{ get_author_posts_url(get_the_author_ID()) }}">{{ get_the_author() }}</a>
+                        <div class="pull-sm-right">
+                            Published by <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}">{{ get_the_author() }}</a>
 
                             @if ($categories = get_the_category())
                                 in 
