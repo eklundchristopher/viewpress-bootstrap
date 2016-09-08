@@ -20,7 +20,9 @@
 
                         <br>
 
-                        <big class="text-justify">{{ the_content() }}</big>
+                        <div class="text-justify">
+                            {{ the_content() }}
+                        </div>
 
                         @if ($tags = get_the_tags())
                             <br>
