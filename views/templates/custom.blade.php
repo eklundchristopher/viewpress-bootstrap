@@ -1,6 +1,8 @@
-<?php /* Template Name: Custom */ ?>
+{{--
+Template Name: Custom
+--}}
 
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
 

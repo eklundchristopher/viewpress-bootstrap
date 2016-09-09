@@ -1,6 +1,6 @@
 @through('EklundChristopher\ViewPressBootstrap\PostsController@single')
 
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
 

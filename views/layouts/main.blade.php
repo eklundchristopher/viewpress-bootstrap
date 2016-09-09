@@ -26,13 +26,13 @@
             <ul class="nav navbar-nav">
                 <li class="nav-item">
                     <a href="{{ site_url('/') }}" class="nav-link">
-                        {{ __('Blog', 'viewpress-bootstrap') }}
+                        {{ __('Home', 'viewpress-bootstrap') }}
                     </a>
                 </li>
             </ul>
 
-            @if (is_user_logged_in())
-                <div class="btn-group pull-sm-right">
+            <div class="btn-group pull-sm-right">
+                @if (is_user_logged_in())
                     <a href="{{ get_author_posts_url(wp_get_current_user()->ID) }}" class="btn btn-viewpress">
                         {{ wp_get_current_user()->display_name }}
                     </a>
@@ -47,8 +47,12 @@
                         <div class="dropdown-divider"></div>
                         <a href="{{ wp_logout_url() }}" class="dropdown-item">Log Out</a>
                     </div>
-                </div>
-            @endif
+                @else
+                    <a href="{{ admin_url() }}" class="btn btn-viewpress">
+                        {{ __('Sign In', 'viewpress-bootstrap') }}
+                    </a>
+                @endif
+            </div>
         </div>
     </nav>
 
