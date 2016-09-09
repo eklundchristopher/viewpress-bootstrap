@@ -31,6 +31,20 @@ abbr[title] {
     text-decoration: none;
 }
 
+.navbar-brand {
+    &:hover #logo {
+        opacity: .8;
+    }
+
+    #logo {
+        transition: opacity .15s ease-in-out;
+        display: inline-block;
+        margin-right: 5px;
+        margin-top: -4px;
+        height: 18px;
+    }
+}
+
 .screen-reader-text {
     display: none;
 }

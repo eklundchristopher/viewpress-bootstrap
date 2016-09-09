@@ -20,6 +20,8 @@
     <nav class="navbar navbar-light navbar-full bg-viewpress">
         <div class="container">
             <a href="{{ site_url('/') }}" class="navbar-brand">
+                <img src="{{ get_template_directory_uri() }}/public/img/logo.svg" id="logo">
+
                 {{ __('ViewPress', 'viewpress-bootstrap') }}
             </a>
 
