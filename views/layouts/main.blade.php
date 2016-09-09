@@ -33,27 +33,35 @@
                 </li>
             </ul>
 
-            <div class="btn-group pull-sm-right">
-                @if (is_user_logged_in())
-                    <a href="{{ get_author_posts_url(wp_get_current_user()->ID) }}" class="btn btn-viewpress">
-                        {{ wp_get_current_user()->display_name }}
-                    </a>
+            <div class="pull-sm-right">
+                <a href="https://github.com/eklundchristopher/viewpress" class="btn" target="_blank">
+                    <span class="fa fa-github"></span>
 
-                    <button class="btn btn-viewpress dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+                    {{ __('GitHub', 'viewpress-bootstrap') }}
+                </a>
 
-                    <div class="dropdown-menu">
-                        @if (current_user_can('manage_options'))
-                            <a href="{{ get_admin_url() }}" class="dropdown-item">Dashboard</a>
-                        @endif
-                        <a href="{{ get_edit_user_link() }}" class="dropdown-item">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="{{ wp_logout_url() }}" class="dropdown-item">Log Out</a>
-                    </div>
-                @else
-                    <a href="{{ admin_url() }}" class="btn btn-viewpress">
-                        {{ __('Sign In', 'viewpress-bootstrap') }}
-                    </a>
-                @endif
+                <div class="btn-group">
+                    @if (is_user_logged_in())
+                        <a href="{{ get_author_posts_url(wp_get_current_user()->ID) }}" class="btn btn-viewpress">
+                            {{ wp_get_current_user()->display_name }}
+                        </a>
+
+                        <button class="btn btn-viewpress dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+                        <div class="dropdown-menu">
+                            @if (current_user_can('manage_options'))
+                                <a href="{{ get_admin_url() }}" class="dropdown-item">Dashboard</a>
+                            @endif
+                            <a href="{{ get_edit_user_link() }}" class="dropdown-item">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{{ wp_logout_url() }}" class="dropdown-item">Log Out</a>
+                        </div>
+                    @else
+                        <a href="{{ admin_url() }}" class="btn btn-viewpress">
+                            {{ __('Sign In', 'viewpress-bootstrap') }}
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
     </nav>

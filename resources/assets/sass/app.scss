@@ -6,7 +6,7 @@ $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-size-root: 14px;
 
 @import 'node_modules/bootstrap/scss/bootstrap';
-
+@import 'node_modules/font-awesome/scss/font-awesome';
 
 
 body {
@@ -16,14 +16,20 @@ body {
 }
 
 a {
-    border-bottom: 1px solid transparent;
     transition: all .15s ease-in-out;
     color: #3097d1;
 
     &:hover {
-        border-bottom-color: #216a94;
         text-decoration: none;
         color: #216a94;
+    }
+
+    &:not(.btn) {
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+            border-bottom-color: #216a94;
+        }
     }
 }
 
