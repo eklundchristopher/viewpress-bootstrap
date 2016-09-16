@@ -26,14 +26,6 @@ add_action('widgets_init', function () {
     ]);
 });
 
-/**
- * By default, there's no title for the search widget, so we'll have to manually add it.
- * If you use a title for your search widget, you should comment this section out.
- */
-add_filter('get_search_form', function ($form) {
-    return '<div class="card-block">'.$form;
-});
-
 
 if (! function_exists('viewpress_pagination')) {
     /**
